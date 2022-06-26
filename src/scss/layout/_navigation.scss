@@ -1,0 +1,81 @@
+@import '../abstracts/_mixins.scss';
+@import '../abstracts/_variables.scss';
+
+.navbar{
+    width: 100%;
+    padding: 23px 0;
+    .content-wraper{
+        position: relative;
+    }
+}
+.navbar_btns{
+    @include flex (right);
+}
+.navbar__menu-button{
+    width: 44px;
+}
+.button--open{
+    img{
+        background-color: black;
+    };
+}
+.navbar__menu{
+    @include flex(left, flex-start, column);
+    position: absolute;
+    width: 182px;
+    right: 28px;
+    display: none;
+}
+.navbar__menu-item{
+    width: 100%;
+
+    &:nth-child(1){
+        a{
+            color: $menu-item-active;
+        }
+    }
+
+    a{
+        display: block;
+        width: 100%;
+        @include text(400, 22px, 11px);
+        text-transform: uppercase;
+        padding: 6.5px 14px 3.5px 14px;
+        color: $rimary-text-color;
+        text-decoration: none;
+        background-color: $navbar-menu-background;
+
+        &:hover{
+            background-color: $navbar-menu-background-hover;
+        }
+    }
+}
+
+@media (min-width:$breake-point-tab){
+    
+    .navbar_btns{
+        display: none;
+    }
+
+    .navbar__menu{
+        @include flex(center, center, row);
+        position: relative;
+        width: 100%;
+        gap:34px;
+        right: 0;
+
+        li{
+            width: fit-content;
+        }
+        a{
+            background-color: white;
+            padding: 0;
+        }
+    }
+}
+
+@media (min-width:$breake-point-laptop){
+    .navbar__menu{
+        gap:68px;
+    }
+}

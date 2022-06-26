@@ -1,0 +1,81 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.posts{
+    width: 100%;
+    padding: 15px 0;
+    .section-title{
+        padding: 23px 0;
+    }
+}
+.posts__conteiner{
+    width: 100%;
+    @include flex(center, left, column);
+    @media (min-width:$breake-point-laptop){
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+.posts__post-item{
+    width: 100%;
+    padding-bottom: 28.5px;
+    @include flex (center, flex-start, column);
+    
+    .additional-post {
+        display: none;
+    }
+
+    @media (min-width:$breake-point-tab){
+        @include flex (left, flex-start, row);
+        gap: 21px;
+        padding-bottom: 34px;
+
+        .additional-post {
+            display: block;
+        }
+    }
+    
+    @media (min-width:$breake-point-laptop){
+        .posts__post-item-description{
+            max-width: 404px;
+        }
+        width: 50%;
+    }
+}
+.posts__post-item-img{
+    width: 160px;
+    height: 140px;
+    margin-bottom: 11px;
+
+    img{
+        width: 100%;
+    }
+}
+.posts__post-item-title{
+    @include text (700, 30px, $mob-title-fontsize);
+    color: $rimary-text-color;
+    
+    @media (min-width:$breake-point-tab){
+        font-size: 16px;
+    }
+}
+.posts__post-item-text{
+    span{
+        @include text (400, 20px, 11px);
+        padding-right: 5px;
+        color: $sub-text-color;
+    }
+    
+    @media (min-width:$breake-point-tab){
+        font-size: 12px;
+    }
+}
+.posts__post-item-descr{
+    display: none;
+    
+    @media (min-width:$breake-point-tab){
+        @include text (400, 26px, 14px);
+        color: $secondary-text-color;
+        display: block;
+    }
+}

@@ -1,0 +1,11 @@
+@import './_mixins';
+@import './_variables';
+
+.section-title{
+    @include text (700, 22px);
+    text-transform: uppercase;
+    color: $rimary-text-color;
+    @media (min-width: $breake-point-tab){
+        font-size: $title-fontsize;
+    };
+}
